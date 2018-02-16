@@ -116,6 +116,9 @@ with detection_graph.as_default():
         total_time += current_end - current_comp_start
         print('{} consumed {:.3f}s in total, including {:.3f}s computation time'\
           .format(os.path.basename(image_path), current_end - current_start, current_comp_end - current_comp_start))
-      
-      print('\nTotal elapsed time {:.3f}s, on average {:.3f}s\nTotal computation time {:.3f}s, on average {:.3f}s per frame'\
-        .format(total_time, total_time / IMAGE_NUM, total_comp_time, total_comp_time / IMAGE_NUM))
+          
+      if len(IMAGE_PATHS) == 0:
+        print('No image found!')
+      else:
+        print('\nTotal elapsed time {:.3f}s, on average {:.3f}s\nTotal computation time {:.3f}s, on average {:.3f}s per frame'\
+          .format(total_time, total_time / IMAGE_NUM, total_comp_time, total_comp_time / IMAGE_NUM))
