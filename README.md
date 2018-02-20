@@ -48,7 +48,7 @@ One of the benefits brought by [Tensorflow Object Detection API](https://github.
  
 A label map is a map between model output and the actual class of the object. The label map differs if different training sets are used. Having determined your model to use, [download corresponding labels](https://github.com/tensorflow/models/tree/master/research/object_detection/data) for its training set.
 
-By default settings, 3 files with `.ckpt` in the names are needed and should be extracted to `<repository>/models/<model-name>/`, while label maps are put in `<repository>/data/`. Specify the model name in `settings.py`.
+By default settings, file `checkpoint` along with 3 files with `.ckpt` in the names are needed and should be extracted to `<repository>/models/<model-name>/`, while label maps are put in `<repository>/data/`. Specify the model name in `settings.py`.
 
 ### Input
 As is mentioned, this application supports detecting objects in both images and videos. Images should be put into `<repository>/input/<image-set>/`, and the program will iterate through all the supported image files automatically. Videos should go to `<repository>/input/<video-set>/`. Edit `settings.py` to set the set names and video file name.
