@@ -14,10 +14,12 @@ def visualize_results(frame, category_index, boxes, scores, classes, frame_heigh
     classes = np.squeeze(classes)
     
     for box, score, category in zip(boxes, scores, classes):
-        if score < threshold or box[2] - box[0] < 0.04 or box[3] - box[1] < 0.032:
+        if score < threshold or box[2] - box[0] < 0.032 or box[3] - box[1] < 0.024:
             continue
         
         # Generate label to put
+        if category not in category_index:
+            continue
         text = category_index[category]['name'] + ': {:.0f}%'.format(score*100)
         # Denormalized coordinates
         box_denormalized = np.multiply(box, [frame_height, frame_width, frame_height, frame_width]).astype(np.int32)
