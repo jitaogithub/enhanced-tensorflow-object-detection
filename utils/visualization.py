@@ -6,7 +6,7 @@ import numpy as np
 # Visualization of the results of a detection
 def visualize_results(frame, category_index, boxes, scores, classes, frame_height, frame_width, 
     threshold=0.3, box_color=(0, 255, 0), box_thickness=2, font_face=cv2.FONT_HERSHEY_SIMPLEX, 
-    font_scale=0.4, font_color=(0, 0, 0), font_thickness=1):
+    font_scale=0.4, font_color=(0, 0, 0), font_thickness=1, min_box_height = 0.032, min_box_width = 0.024):
     
     # Pre-process input
     boxes = np.squeeze(boxes)
@@ -14,7 +14,7 @@ def visualize_results(frame, category_index, boxes, scores, classes, frame_heigh
     classes = np.squeeze(classes)
     
     for box, score, category in zip(boxes, scores, classes):
-        if score < threshold or box[2] - box[0] < 0.032 or box[3] - box[1] < 0.024:
+        if score < threshold or box[2] - box[0] < min_box_height or box[3] - box[1] < min_box_width or box[3] - box[1] > 0.6:
             continue
         
         # Generate label to put
