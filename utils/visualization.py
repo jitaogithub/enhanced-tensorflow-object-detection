@@ -14,7 +14,7 @@ def visualize_results(frame, category_index, boxes, scores, classes, frame_heigh
     classes = np.squeeze(classes)
     
     for box, score, category in zip(boxes, scores, classes):
-        if score < threshold or box[2] - box[0] < min_box_height or box[3] - box[1] < min_box_width or box[3] - box[1] > 0.6:
+        if score < threshold or box[2] - box[0] < min_box_height or box[3] - box[1] < min_box_width or box[3] - box[1] > 0.35:
             continue
         
         # Generate label to put

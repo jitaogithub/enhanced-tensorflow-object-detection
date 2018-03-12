@@ -67,7 +67,7 @@ with detection_graph.as_default():
         current_comp_end = time.time()
 
         frame = visualize_results(frame, category_index, boxes, scores, classes, video_height, video_width, 
-          THRESHOLD, BOX_COLOR, BOX_THICKNESS, FONT_FACE, FONT_SCALE, FONT_COLOR, FONT_THICKNESS)
+          THRESHOLD, BOX_COLOR, BOX_THICKNESS, FONT_FACE, FONT_SCALE, FONT_COLOR, FONT_THICKNESS, MIN_BOX_HEIGHT, MIN_BOX_WIDTH)
 
         # Show the processed frame, press q to quit
         frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)   
@@ -105,7 +105,7 @@ with detection_graph.as_default():
 
         # Visualization
         frame = visualize_results(frame, category_index, boxes, scores, classes, image_height, image_width, 
-          THRESHOLD, BOX_COLOR, BOX_THICKNESS, FONT_FACE, FONT_SCALE, FONT_COLOR, FONT_THICKNESS)
+          THRESHOLD, BOX_COLOR, BOX_THICKNESS, FONT_FACE, FONT_SCALE, FONT_COLOR, FONT_THICKNESS, MIN_BOX_HEIGHT, MIN_BOX_WIDTH)
         
         # Output as file
         frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)   

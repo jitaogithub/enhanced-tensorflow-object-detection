@@ -106,3 +106,4 @@ ENV/
 /input
 /models
 /output
+/training
